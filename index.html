@@ -42,16 +42,16 @@
 
 	document.onmousemove = detectangle;
 	function detectangle(event) {
-	  var x = event.clientX;
-	  var y = event.clientY;
+	  var x = event.movementX;
+	  var y = event.movementY;
 	  if (x>window.innerWidth/2){
-		  contleft=contleft+5;
+		  contleft=contleft+x;
 		  if (contleft<=window.innerWidth*-3){
 		  contleft=0;
 		  }
 	  }
 	  if (x<window.innerWidth/2){
-			contleft=contleft-5;
+			contleft=contleft-x;
 		  	if (contleft>=window.innerWidth*3){
 			  contleft=0;
 			  }
@@ -60,6 +60,9 @@
 	}
 </script>
 <style>
+	body{
+		overflow:hidden;
+	}
 	* {
 		cursor: none;
 	}
