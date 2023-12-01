@@ -1,4 +1,4 @@
-<div id="cont" style="width:300%;position:absolute;left:0px;top:0px;height:100%;" onmousemove="detectangle(event)"></div>
+<div id="cont" style="width:300%;position:absolute;left:0px;top:0px;height:100%;"></div>
 <div id="ground" style="width:100%;height:70%;position:absolute;left:0px;bottom:0px;background-color:#013220;"></div>
 <div id="sky" style="width:100%;height:30%;position:absolute;left:0px;top:0px;background-color:#87ceeb;"></div>
 <script>
@@ -33,6 +33,7 @@
 		}, 50);
 	}, 100);
 
+	document.onmousemove = detectangle;
 	function detectangle(event) {
 	  var x = event.clientX;
 	  var y = event.clientY;
