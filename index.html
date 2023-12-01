@@ -1,12 +1,9 @@
+<div id="ground" style="width:100%;height:50%;position:absolute;left:0px;top:0px;background-color:#013220;"></div>
 <script>
 	window.onerror = function(msg, url, linenumber) {
 		alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
 		return true;
 	};
-	
-	var ground = document.createElement("div");
-	ground.style = "width:100%;height:50%;bottom:0px;left:0px;background-color:#013220;";
-	document.body.appendChild(ground);
 	
 	setInterval(() => {
 		var enemyx = Math.floor(Math.random() * window.innerWidth * 3);
