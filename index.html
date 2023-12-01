@@ -11,11 +11,15 @@
     var enemyheight=0;
     var enemy=document.createElement("div");
     enemy.style="width:"+enemywidth+"px;height:"+enemyheight+"px;background-color:black;position:absolute;top:"+enemyy+"px;left:"+enemyx+"px;";
+    document.body.appendChild(enemy);
     setInterval(() => {
       enemyy=enemyy+window.innerWidth/30;
       enemywidth=enemywidth+3;
       enemyheight=enemyheight+6;
-      enemy.style="width:"+enemywidth+"px;height:"+enemyheight+"px;background-color:black;position:absolute;top:"+enemyy+"px;left:"+enemyx+"px;";
+      enemy.style.width=enemywidth+"px";
+      enemy.style.height=enemyheight+"px";
+      enemy.style.top=enemyy+"px";
+      enemy.style.left=enemyx+"px";
     },15);
   },100);
 </script>
