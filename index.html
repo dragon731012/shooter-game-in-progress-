@@ -44,19 +44,14 @@
 	function detectangle(event) {
 	  var x = event.movementX;
 	  var y = event.movementY;
-	  if (x>window.innerWidth/2){
-		  contleft=contleft+x;
-		  if (contleft<=window.innerWidth*-3){
-		  contleft=0;
-		  }
+	  contleft=contleft+x;
+	  if (contleft<=window.innerWidth*-3){
+	    contleft=0;
 	  }
-	  if (x<window.innerWidth/2){
-			contleft=contleft-x;
-		  	if (contleft>=window.innerWidth*3){
-			  contleft=window.innerWidth*-3;
-			  }
+	  else if (contleft>=window.innerWidth*3){
+	    contleft=window.innerWidth*-3;
 	  }
-		cont.style.left=contleft+"px";
+	  cont.style.left=contleft+"px";
 	}
 </script>
 <style>
