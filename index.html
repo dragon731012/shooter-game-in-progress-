@@ -65,10 +65,10 @@
 	    contleft=window.innerWidth*-3;
 	  }
 
-	  if (contleft<=window.innerWidth/2){
-	    writing.style.left=contleft;
+	  if (contleft<=window.innerWidth){
+	    writing.style.left=window.innerWidth-contleft;
 	  }
-	  else if (contleft>=window.innerWidth/-2){
+	  if (contleft>=0){
 	    writing.style.left=contleft-window.innerWidth;
 	  }
 		
