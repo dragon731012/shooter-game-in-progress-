@@ -1,6 +1,9 @@
 <div id="cont" style="width:300%;position:absolute;left:0px;top:0px;height:100%;z-index:2;" onclick="lock();">
 	<div id="ground" style="width:100%;height:70%;position:absolute;left:0px;bottom:0px;background-color:#013220;"></div>
 	<div id="sky" style="width:100%;height:30%;position:absolute;left:0px;top:0px;background-color:#87ceeb;"></div>
+	<div id="writing" style="width:33.4%;height:100%;position:absolute;left:0px;top:0px;background-color:#696969;">
+		<img src="writing.png" style="width:100%;position:absolute;top:20%;left:0px;">
+	</div>
 </div>
 <script>
 	window.onerror = function(msg, url, linenumber) {
@@ -45,6 +48,7 @@
 	function detectangle(event) {
 	  var x = event.movementX;
 	  var y = event.movementY;
+	  var writing=document.getElementById("writing");
 	  contleft=contleft+x;
 	  conttop=conttop+y;
 
@@ -59,6 +63,13 @@
 	  }
 	  else if (contleft>=window.innerWidth){
 	    contleft=window.innerWidth*-3;
+	  }
+
+	  if (contleft<=window.innerWidth*-3){
+	    writing.style.left=contleft;
+	  }
+	  else if (contleft>=0){
+	    writing.style.left=contleft-window.innerWidth;
 	  }
 		
 	  cont.style.left=contleft+"px";
