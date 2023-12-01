@@ -1,6 +1,11 @@
+<div id="cont" style="width:300%;position:absolute;left:0px;top:0px;height:100%;" onmousemove="detectangle(event);"></div>
 <div id="ground" style="width:100%;height:70%;position:absolute;left:0px;bottom:0px;background-color:#013220;"></div>
 <div id="sky" style="width:100%;height:30%;position:absolute;left:0px;top:0px;background-color:#87ceeb;"></div>
 <script>
+	var cont=document.getElementById("cont");
+	var contleft=0;
+	var contright=0;
+
 	window.onerror = function(msg, url, linenumber) {
 		alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
 		return true;
@@ -27,6 +32,18 @@
 			}
 		}, 50);
 	}, 100);
+
+	function detectangle(event) {
+	  var x = event.clientX;
+	  var y = event.clientY;
+	  if (x>window.innerWidth){
+		  contleft=contleft-(0-x);
+	  }
+	  if (x<window.innerWidth){
+			contleft=contleft+(window.innerWidth-x);
+	  }
+		cont.style.left=contleft+"px";
+	}
 </script>
 <style>
 	* {
