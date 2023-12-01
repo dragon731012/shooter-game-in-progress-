@@ -38,13 +38,13 @@
 	  var x = event.clientX;
 	  var y = event.clientY;
 	  if (x>window.innerWidth/2){
-		  contleft=contleft-5;
+		  contleft=contleft+5;
 		  if (contleft<=window.innerWidth*-3){
 		  contleft=0;
 		  }
 	  }
 	  if (x<window.innerWidth/2){
-			contleft=contleft+5;
+			contleft=contleft-5;
 		  	if (contleft>=window.innerWidth*3){
 			  contleft=0;
 			  }
