@@ -1,9 +1,6 @@
 <div id="ground" style="width:100%;height:70%;position:absolute;left:0px;bottom:0px;background-color:#013220;"></div>
 <div id="sky" style="width:100%;height:30%;position:absolute;left:0px;top:0px;background-color:#87ceeb;"></div>
 <script>
-	document.body.requestFullscreen();
-
-	
 	window.onerror = function(msg, url, linenumber) {
 		alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
 		return true;
@@ -31,3 +28,8 @@
 		}, 50);
 	}, 100);
 </script>
+<style>
+	* {
+		cursor: none;
+	}
+</style>
