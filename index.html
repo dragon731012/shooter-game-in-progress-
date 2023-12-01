@@ -1,5 +1,5 @@
-<div id="ground" style="width:100%;height:60%;position:absolute;left:0px;bottom:0px;background-color:#013220;"></div>
-<div id="sky" style="width:100%;height:40%;position:absolute;left:0px;bottom:0px;background-color:#87ceeb;"></div>
+<div id="ground" style="width:100%;height:70%;position:absolute;left:0px;bottom:0px;background-color:#013220;"></div>
+<div id="sky" style="width:100%;height:30%;position:absolute;left:0px;top:0px;background-color:#87ceeb;"></div>
 <script>
 	window.onerror = function(msg, url, linenumber) {
 		alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
@@ -8,7 +8,7 @@
 	
 	setInterval(() => {
 		var enemyx = Math.floor(Math.random() * window.innerWidth * 3);
-		var enemyy = window.innerHeight / 2;
+		var enemyy = window.innerHeight-(window.innerHeight/100)*3;
 		var enemywidth = 0;
 		var enemyheight = 0;
 		var enemy = document.createElement("div");
