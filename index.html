@@ -7,25 +7,14 @@
 		return true;
 	};
 	
-	var canvas = document.createElement('canvas');
-	canvas.id = "canvas";
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-	canvas.style.zIndex = 9999999999999999999999999999;
-	canvas.style.position = "absolute";
-	canvas.style.left = 0;
-	canvas.style.top = 0;
-	document.body.appendChild(canvas);
-	
-	canvas.addEventListener("click", async () => {
-	  await canvas.requestPointerLock();
-	});
-	
-
-	
 	var cont=document.getElementById("cont");
 	var contleft=0;
 	var contright=0;
+
+	cont.requestPointerLock = cont.requestPointerLock ||
+                 cont.mozRequestPointerLock ||
+                 cont.webkitRequestPointerLock;
+	cont.requestPointerLock();
 	
 	setInterval(() => {
 		var enemyx = Math.floor(Math.random() * window.innerWidth * 3);
