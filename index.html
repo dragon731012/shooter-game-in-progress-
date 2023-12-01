@@ -18,11 +18,8 @@
 	document.body.appendChild(canvas);
 	
 	canvas.addEventListener("click", async () => {
-	  await canvas.requestPointerLock({
-	    unadjustedMovement: true,
-	  });
+	  await canvas.requestPointerLock();
 	});
-
 	
 
 	
