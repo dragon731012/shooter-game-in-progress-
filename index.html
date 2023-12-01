@@ -38,10 +38,10 @@
 	  var x = event.clientX;
 	  var y = event.clientY;
 	  if (x>window.innerWidth){
-		  contleft=contleft-x;
+		  contleft=contleft-x/1000;
 	  }
 	  if (x<window.innerWidth){
-			contleft=contleft+(window.innerWidth-x);
+			contleft=contleft+(window.innerWidth-x/1000);
 	  }
 		cont.style.left=contleft+"px";
 	}
