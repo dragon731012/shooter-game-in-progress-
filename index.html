@@ -1,6 +1,7 @@
-<div id="cont" style="width:300%;position:absolute;left:0px;top:0px;height:100%;z-index:2;" onclick="lock();"></div>
+<div id="cont" style="width:300%;position:absolute;left:0px;top:0px;height:100%;z-index:2;" onclick="lock();">
 <div id="ground" style="width:100%;height:70%;position:absolute;left:0px;bottom:0px;background-color:#013220;"></div>
 <div id="sky" style="width:100%;height:30%;position:absolute;left:0px;top:0px;background-color:#87ceeb;"></div>
+</div>
 <script>
 	window.onerror = function(msg, url, linenumber) {
 		alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
@@ -9,7 +10,7 @@
 	
 	var cont=document.getElementById("cont");
 	var contleft=0;
-	var contright=0;
+	var conttop=0;
 
 	function lock(){
 		cont.requestPointerLock = cont.requestPointerLock ||
@@ -45,6 +46,14 @@
 	  var x = event.movementX;
 	  var y = event.movementY;
 	  contleft=contleft+x;
+	  conttop=conttop+y;
+
+	  if (conttop<0){
+	  	document.body.backgroundColor="#013220";
+	  }
+	  else if (conttop>0){
+	  	document.body.backgroundColor="#87ceeb";
+	  }
 	  if (contleft<=window.innerWidth*-3){
 	    contleft=window.innerWidth;
 	  }
