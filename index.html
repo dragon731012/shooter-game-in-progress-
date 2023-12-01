@@ -37,9 +37,8 @@
 	function detectangle(event) {
 	  var x = event.clientX;
 	  var y = event.clientY;
-		alert(x+","+y);
 	  if (x>window.innerWidth){
-		  contleft=contleft-(0-x);
+		  contleft=contleft-x;
 	  }
 	  if (x<window.innerWidth){
 			contleft=contleft+(window.innerWidth-x);
