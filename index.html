@@ -3,7 +3,7 @@
 	<div id="sky" style="width:100%;height:30%;position:absolute;left:0px;top:0px;background-color:#87ceeb;"></div>
 </div>
 <div id="writing" style="width:100%;height:100%;position:absolute;left:0px;top:0px;background-color:#696969;">
-		<img src="writing.png" style="width:30%;position:absolute;top:20%;left:40%;">
+		<img src="writing.png" style="width:30%;position:absolute;top:20%;left:35%;">
 	</div>
 <script>
 	window.onerror = function(msg, url, linenumber) {
@@ -65,10 +65,10 @@
 	    contleft=window.innerWidth*-3;
 	  }
 
-	  if (contleft<=window.innerWidth*-1){
+	  if (contleft<=window.innerWidth/2){
 	    writing.style.left=contleft;
 	  }
-	  else if (contleft>=0){
+	  else if (contleft>=window.innerWidth/-2){
 	    writing.style.left=contleft-window.innerWidth;
 	  }
 		
