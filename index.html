@@ -14,12 +14,14 @@
     document.body.appendChild(enemy);
     setInterval(() => {
       enemyy=enemyy+window.innerWidth/30;
-      enemywidth=enemywidth+3;
-      enemyheight=enemyheight+6;
+      enemywidth=enemywidth+12;
+      enemyheight=enemyheight+24;
       enemy.style.width=enemywidth+"px";
       enemy.style.height=enemyheight+"px";
       enemy.style.top=enemyy+"px";
       enemy.style.left=enemyx+"px";
-    },15);
+      if (enemyy>window.innerHeight){
+        enemy.remove();
+    },50);
   },100);
 </script>
