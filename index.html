@@ -46,13 +46,13 @@
 	  var y = event.movementY;
 	  if (x>window.innerWidth/2){
 		  contleft=contleft+x;
-		  if (contleft<=window.innerWidth*-3){
+		  if (contleft>=window.innerWidth*-3){
 		  contleft=0;
 		  }
 	  }
 	  if (x<window.innerWidth/2){
 			contleft=contleft-x;
-		  	if (contleft>=window.innerWidth*3){
+		  	if (contleft<=window.innerWidth*3){
 			  contleft=window.innerWidth*-3;
 			  }
 	  }
