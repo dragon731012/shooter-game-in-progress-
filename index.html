@@ -8,7 +8,9 @@
 <div id="resume" style="width:15%; position:absolute;text-align:center;display:none;left:50%;top:50%;translate: -50% -50%;background-color:#696969;z-index:3;cursor:pointer;" onclick="lock();"><h2>Resume</h2></div>
 <div id="start" style="width:15%; position:absolute;text-align:center;left:50%;top:50%;translate: -50% -50%;background-color:#696969;z-index:3;cursor:pointer;" onclick="run();lock();"><h2>Start</h2></div>
 
-<img src="/img/gun.png" id="gun" style="width:35%;position:absolute;right:0px;bottom:0px; z-index:9999999999999;">
+<img src="/img/gun.png" style="width:35%;position:absolute;right:0px;bottom:0px; z-index:100;">
+<img src="/img/gunshot.png" id="gun" style="width:35%;position:absolute;display:none;right:0px;bottom:0px; z-index:9999999999999;">
+
 <img src="/img/target.png" id="target" style="display:none;width:7%;position:absolute;left:50%;top:50%;translate: -50% -50%;z-index:9999999999999;">
 <script>
 	var paused=false;
@@ -92,11 +94,10 @@
 		document.onclick = shot;
 
 		function shot(){
-			gun.src="/img/gunshot.png";
-			alert("shot");
+			gun.style.display="block";
 			setTimeout(() => {
-				gun.src="/img/gun.png";
-			},50);
+				gun.style.display="none";
+			},100);
 		}
 		
 		function detectangle(event) {
