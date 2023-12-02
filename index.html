@@ -8,12 +8,15 @@
 <div id="resume" style="width:15%; position:absolute;text-align:center;display:none;left:50%;top:50%;translate: -50% -50%;background-color:#696969;z-index:3;cursor:pointer;" onclick="lock();"><h2>Resume</h2></div>
 <div id="start" style="width:15%; position:absolute;text-align:center;left:50%;top:50%;translate: -50% -50%;background-color:#696969;z-index:3;cursor:pointer;" onclick="run();lock();"><h2>Start</h2></div>
 <script>
+	var paused=false;
+	
 	function lock(){
 			cont.requestPointerLock = cont.requestPointerLock ||
 		                 cont.mozRequestPointerLock ||
 		                 cont.webkitRequestPointerLock;
 			cont.requestPointerLock();
 		document.getElementById("resume").style.display="none";
+		paused=false;
 		}
 	
 	
@@ -22,9 +25,7 @@
 		return true;
 	};
 
-	function run(){
-		var paused=false;
-		
+	function run(){		
 		document.addEventListener("pointerlockchange", lockChangeAlert, false);
 
 		function lockChangeAlert() {
@@ -66,6 +67,9 @@
 						}
 					}
 				}, 50);
+			}
+			else{
+				alert("paused");
 			}
 		}, 100);
 	
