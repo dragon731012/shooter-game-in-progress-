@@ -64,6 +64,7 @@
 				var enemywidth = 0;
 				var enemyheight = 0;
 				var enemy = document.createElement("img");
+				enemy.className="zombies";
 				enemy.src="/img/zombie.png";
 				enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background:transparent;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
 				cont.appendChild(enemy);
@@ -76,6 +77,10 @@
 						enemy.style.height = enemyheight + "px";
 						enemy.style.top = enemyy + "px";
 						enemy.style.left = enemyx + "px";
+						enemy.dataset.x=enemyx;
+						enemy.dataset.y=enemyy;
+						enemy.dataset.width=enemywidth;
+						enemy.dataset.height=enemyheight;
 						if (enemyheight > window.innerHeight) {
 							enemy.remove();
 						}
@@ -104,6 +109,20 @@
 			if (!paused){
 				gunshot.style.display="block";
 				gun.style.display="none";
+
+				var zombies=document.getElementsByClassName("zombies");
+				
+				var tx=window.innerWidth/2-(window.innerWidth*0.07)/2
+				var ty=window.innerHeight/2-(window.innerHeight*0.07)/2
+				var twidth=target.offsetWidth;
+				var theight=target.offsetHeight;
+				
+				for (var i=0;i<zombies.length;i++){
+					if (tx < zombies[i].dataset.x + zombies[i].dataset.width && window.innerWidth*0.07 + twidth > zombies[i].dataset.x && ty < zombies[i].dataset.y + zombies[i].dataset.height && ty + theight > zombies[i].dataset.y){
+						zombies[i].remove();
+					}
+				}
+				
 				setTimeout(() => {
 					gun.style.display="block";
 					gunshot.style.display="none";
