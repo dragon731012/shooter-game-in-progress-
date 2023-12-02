@@ -103,9 +103,12 @@
 				wave.innerText="Wave "+wavenum;
 			},length*1000);
 			var countdown=setInterval(() => {
-				time=time+1/1000;
-				document.getElementById("time").innerText=Math.floor(length-time);
-			},duration);
+				time=time+1;
+				document.getElementById("time").innerText=length-time;
+				if (time==duration){
+					clearInterval(countdown);
+				}
+			},1000);
 		}
 
 		var rate=1000;
