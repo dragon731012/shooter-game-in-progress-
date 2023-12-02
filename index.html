@@ -46,6 +46,11 @@
 		
 		setInterval(() => {
 			if (!paused){
+				if (document.pointerLockElement === cont) {
+			  } else {
+			    lock();
+			  }
+				
 				var enemyx = Math.floor(Math.random() * window.innerWidth * 2);
 				var enemyy = (window.innerHeight/100)*30;
 				var enemywidth = 0;
@@ -70,7 +75,7 @@
 			}
 		}, 100);
 	
-		cont.onmousemove = detectangle;
+		document.onmousemove = detectangle;
 		function detectangle(event) {
 		  if (!paused){
 			  var x = event.movementX;
