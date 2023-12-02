@@ -102,9 +102,9 @@
 				wavenum=wavenum+1;
 				wave.innerText="Wave "+wavenum;
 			},length*1000);
-			var setInterval(() => {
+			var countdown=setInterval(() => {
 				time=time+1;
-				document.getElementById("time").innerText=time;
+				document.getElementById("time").innerText=length-time;
 			},duration);
 		}
 
