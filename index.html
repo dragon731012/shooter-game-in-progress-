@@ -95,12 +95,14 @@
 		document.onclick = shot;
 
 		function shot(){
-			gunshot.style.display="block";
-			gun.style.display="none";
-			setTimeout(() => {
-				gun.style.display="block";
-				gunshot.style.display="none";
-			},100);
+			if (!paused){
+				gunshot.style.display="block";
+				gun.style.display="none";
+				setTimeout(() => {
+					gun.style.display="block";
+					gunshot.style.display="none";
+				},100);
+			}
 		}
 		
 		function detectangle(event) {
