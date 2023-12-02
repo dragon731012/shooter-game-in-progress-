@@ -133,7 +133,8 @@
 					var zheight=zombies[i].dataset.height;
 					
 					if (isOverlapping(target,zombies[i])){
-						alert("e");
+						zombies[i].remove();
+						break;
 					}
 				}
 				
