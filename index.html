@@ -93,15 +93,15 @@
 				}
 			}
 				
-			setInterval(e,rate);
+			var inter=setInterval(e,rate);
 			setTimeout(() => {
-				clearInterval(e);
+				clearInterval(inter);
 				wavenum=wavenum+1;
 				wave.innerText="Wave "+wavenum;
 			},length*1000);
 		}
 
-		runwave(10,500,20);
+		runwave(10,1000,20);
 		
 		setInterval(() => {
 			if (!paused){
