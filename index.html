@@ -116,6 +116,8 @@
 				var ty=window.innerHeight/2-(window.innerHeight*0.07)/2
 				var twidth=target.offsetWidth;
 				var theight=target.offsetHeight;
+
+				console.log("tx\n"+tx"\nty\n"+ty+"\ntwidth\n"+twidth+"\ntheight\n"+theight);
 				
 				for (var i=0;i<zombies.length;i++){
 					if (tx < zombies[i].dataset.x + zombies[i].dataset.width && window.innerWidth*0.07 + twidth > zombies[i].dataset.x && ty < zombies[i].dataset.y + zombies[i].dataset.height && ty + theight > zombies[i].dataset.y){
