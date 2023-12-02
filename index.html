@@ -105,7 +105,7 @@
 			var countdown=setInterval(() => {
 				time=time+1;
 				document.getElementById("time").innerText=length-time;
-				if (time==duration){
+				if (length-time==0){
 					clearInterval(countdown);
 				}
 			},1000);
@@ -115,7 +115,7 @@
 		var duration=20;
 		var speed=10;
 		
-		setTimeout(() => {
+		setInterval(() => {
 			runwave(speed,rate,duration);
 			speed=speed+1;
 			rate=rate-50;
