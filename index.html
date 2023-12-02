@@ -116,14 +116,12 @@
 				var ty=window.innerHeight/2-(window.innerHeight*0.07)/2
 				var twidth=target.offsetWidth;
 				var theight=target.offsetHeight;
-
-				console.log("tx\n"+tx+"\nty\n"+ty+"\ntwidth\n"+twidth+"\ntheight\n"+theight);
 				
 				for (var i=0;i<zombies.length;i++){
 					var zx=zombies[i].dataset.x;
 					var zy=zombies[i].dataset.y;
 					var zwidth=zombies[i].dataset.width;
-					var zheight=zombies[i].dataset.x;
+					var zheight=zombies[i].dataset.height;
 					
 					if (tx < zx + zwidth && tx + twidth > zx && ty < zy + zheight && ty + theight > zy){
 						zombies[i].remove();
