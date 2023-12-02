@@ -118,8 +118,8 @@
 				var theight=target.offsetHeight;
 
 				function isOverlapping(div1, div2){
-				    const div1 = div1.getBoundingClientRect();
-				    const div2 = div2.getBoundingClientRect();
+				    div1 = div1.getBoundingClientRect();
+				    div2 = div2.getBoundingClientRect();
 				    return (div1.right > div2.left && 
 				            div1.left < div2.right && 
 				            div1.bottom > div2.top && 
