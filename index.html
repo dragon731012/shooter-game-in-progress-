@@ -116,6 +116,15 @@
 				var ty=window.innerHeight/2-(window.innerHeight*0.07)/2
 				var twidth=target.offsetWidth;
 				var theight=target.offsetHeight;
+
+				function isOverlapping(div1, div2){
+				    const div1 = div1.getBoundingClientRect();
+				    const div2 = div2.getBoundingClientRect();
+				    return (div1.right > div2.left && 
+				            div1.left < div2.right && 
+				            div1.bottom > div2.top && 
+				            div1.top < div2.bottom);
+				}
 				
 				for (var i=0;i<zombies.length;i++){
 					var zx=zombies[i].dataset.x;
@@ -123,7 +132,7 @@
 					var zwidth=zombies[i].dataset.width;
 					var zheight=zombies[i].dataset.height;
 					
-					if ((tx+twidth<zx && tx>zx) && (ty+theight<zy && ty>zy)){
+					if (isOverlapping(target,zombies[i])){
 						alert("e");
 					}
 				}
