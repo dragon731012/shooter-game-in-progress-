@@ -117,9 +117,19 @@
 		var time2=5;
 
 		runwave(speed,rate,duration);
-			speed=speed+1;
+			speed=speed+2.5;
 			rate=rate-50;
 			duration=duration+2;
+			setTimeout(() => {
+				var countdown=setInterval(() => {
+					if (time2==0){
+						clearInterval(countdown);
+						time2=5;
+					}
+					time2=time2-1;
+					document.getElementById("time").innerText=time2;
+				},1000);
+			},duration*1000);
 		
 		setInterval(() => {
 			runwave(speed,rate,duration);
