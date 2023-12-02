@@ -5,77 +5,82 @@
 <div id="writing" style="width:100%;height:100%;position:absolute;left:0px;top:0px;background-color:#696969;">
 		<img src="writing.png" style="width:30%;position:absolute;top:20%;left:35%;">
 	</div>
+<div id="start" style="width:10%; position:absolute;left:50%;top:50%;translate: -50% -50%;background-color:#696969;" onclick="run();">Start</div>
 <script>
 	window.onerror = function(msg, url, linenumber) {
 		alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
 		return true;
 	};
-	
-	var cont=document.getElementById("cont");
-	var contleft=0;
-	var conttop=0;
 
-	function lock(){
-		cont.requestPointerLock = cont.requestPointerLock ||
-	                 cont.mozRequestPointerLock ||
-	                 cont.webkitRequestPointerLock;
-		cont.requestPointerLock();
-	}
-	
-	setInterval(() => {
-		var enemyx = Math.floor(Math.random() * window.innerWidth * 2);
-		var enemyy = (window.innerHeight/100)*30;
-		var enemywidth = 0;
-		var enemyheight = 0;
-		var enemy = document.createElement("div");
-		enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background-color:black;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
-		cont.appendChild(enemy);
-		setInterval(() => {
-			enemyy = enemyy + window.innerWidth / 500;
-			enemywidth = enemywidth + 12;
-			enemyheight = enemyheight + 24;
-			enemy.style.width = enemywidth + "px";
-			enemy.style.height = enemyheight + "px";
-			enemy.style.top = enemyy + "px";
-			enemy.style.left = enemyx + "px";
-			if (enemyheight > window.innerHeight) {
-				enemy.remove();
-			}
-		}, 50);
-	}, 100);
-
-	document.onmousemove = detectangle;
-	function detectangle(event) {
-	  var x = event.movementX;
-	  var y = event.movementY;
-	  var writing=document.getElementById("writing");
-	  contleft=contleft+x;
-	  conttop=conttop+y;
-
-	  if (conttop<0){
-	  	document.body.style.backgroundColor="#013220";
-	  }
-	  else if (conttop>0){
-	  	document.body.style.backgroundColor="#87ceeb";
-	  }
-	  if (contleft<=window.innerWidth*-2){
-	    contleft=window.innerWidth;
-	  }
-	  else if (contleft>=window.innerWidth){
-	    contleft=window.innerWidth*-2;
-	  }
-
-	  if (contleft<=window.innerWidth*-1){
-	    writing.style.left=contleft+window.innerWidth*2;
-	  }
-	  if (contleft>=0){
-	    writing.style.left=contleft-window.innerWidth;
-	  }
+	function run(){
+		document.getElementById("start").style.display="none";
 		
-	  cont.style.left=contleft+"px";
-	  cont.style.top=conttop+"px";
-
-	  writing.style.top=conttop+"px";
+		var cont=document.getElementById("cont");
+		var contleft=0;
+		var conttop=0;
+	
+		function lock(){
+			cont.requestPointerLock = cont.requestPointerLock ||
+		                 cont.mozRequestPointerLock ||
+		                 cont.webkitRequestPointerLock;
+			cont.requestPointerLock();
+		}
+		
+		setInterval(() => {
+			var enemyx = Math.floor(Math.random() * window.innerWidth * 2);
+			var enemyy = (window.innerHeight/100)*30;
+			var enemywidth = 0;
+			var enemyheight = 0;
+			var enemy = document.createElement("div");
+			enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background-color:black;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
+			cont.appendChild(enemy);
+			setInterval(() => {
+				enemyy = enemyy + window.innerWidth / 500;
+				enemywidth = enemywidth + 12;
+				enemyheight = enemyheight + 24;
+				enemy.style.width = enemywidth + "px";
+				enemy.style.height = enemyheight + "px";
+				enemy.style.top = enemyy + "px";
+				enemy.style.left = enemyx + "px";
+				if (enemyheight > window.innerHeight) {
+					enemy.remove();
+				}
+			}, 50);
+		}, 100);
+	
+		document.onmousemove = detectangle;
+		function detectangle(event) {
+		  var x = event.movementX;
+		  var y = event.movementY;
+		  var writing=document.getElementById("writing");
+		  contleft=contleft+x;
+		  conttop=conttop+y;
+	
+		  if (conttop<0){
+		  	document.body.style.backgroundColor="#013220";
+		  }
+		  else if (conttop>0){
+		  	document.body.style.backgroundColor="#87ceeb";
+		  }
+		  if (contleft<=window.innerWidth*-2){
+		    contleft=window.innerWidth;
+		  }
+		  else if (contleft>=window.innerWidth){
+		    contleft=window.innerWidth*-2;
+		  }
+	
+		  if (contleft<=window.innerWidth*-1){
+		    writing.style.left=contleft+window.innerWidth*2;
+		  }
+		  if (contleft>=0){
+		    writing.style.left=contleft-window.innerWidth;
+		  }
+			
+		  cont.style.left=contleft+"px";
+		  cont.style.top=conttop+"px";
+	
+		  writing.style.top=conttop+"px";
+		}
 	}
 </script>
 <style>
