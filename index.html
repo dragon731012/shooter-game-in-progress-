@@ -120,6 +120,7 @@
 				for (var i=0;i<zombies.length;i++){
 					if (tx < zombies[i].dataset.x + zombies[i].dataset.width && window.innerWidth*0.07 + twidth > zombies[i].dataset.x && ty < zombies[i].dataset.y + zombies[i].dataset.height && ty + theight > zombies[i].dataset.y){
 						zombies[i].remove();
+						break;
 					}
 				}
 				
