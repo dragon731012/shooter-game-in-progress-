@@ -103,7 +103,7 @@
 				wave.innerText="Wave "+wavenum;
 			},length*1000);
 			var countdown=setInterval(() => {
-				time=time+1;
+				time=Math.floor((time+1)/1000);
 				document.getElementById("time").innerText=length-time;
 			},duration);
 		}
