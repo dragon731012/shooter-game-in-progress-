@@ -74,10 +74,12 @@
 		}, 100);
 
 		setInterval(() => {
-			if (document.pointerLockElement === cont) {
-			  } else {
-			    lock();
-			  }
+			if (!paused){
+				if (document.pointerLockElement === cont) {
+				  } else {
+				    lock();
+				  }
+			}
 		},0);
 		
 		document.onmousemove = detectangle;
