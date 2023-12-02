@@ -7,6 +7,13 @@
 	</div>
 <div id="start" style="width:10%; position:absolute;left:50%;top:50%;translate: -50% -50%;background-color:#696969;z-index:3;" onclick="run();">Start</div>
 <script>
+	function lock(){
+			cont.requestPointerLock = cont.requestPointerLock ||
+		                 cont.mozRequestPointerLock ||
+		                 cont.webkitRequestPointerLock;
+			cont.requestPointerLock();
+		}
+	
 	window.onerror = function(msg, url, linenumber) {
 		alert('Error message: ' + msg + '\nURL: ' + url + '\nLine Number: ' + linenumber);
 		return true;
@@ -18,13 +25,6 @@
 		var cont=document.getElementById("cont");
 		var contleft=0;
 		var conttop=0;
-	
-		function lock(){
-			cont.requestPointerLock = cont.requestPointerLock ||
-		                 cont.mozRequestPointerLock ||
-		                 cont.webkitRequestPointerLock;
-			cont.requestPointerLock();
-		}
 		
 		setInterval(() => {
 			var enemyx = Math.floor(Math.random() * window.innerWidth * 2);
