@@ -44,6 +44,7 @@
 		document.getElementById("start").style.display="none";
 		
 		var cont=document.getElementById("cont");
+		var target=document.getElementById("target");
 		var contleft=0;
 		var conttop=0;
 		
@@ -79,6 +80,10 @@
 				  } else {
 				    lock();
 				  }
+				target.style.display="block";
+			}
+			else{
+				target.style.display="none";
 			}
 		},0);
 		
