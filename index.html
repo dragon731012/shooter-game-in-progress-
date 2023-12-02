@@ -7,6 +7,7 @@
 		<img src="/img/cloud.png" style="width:6%;position:absolute;right:10%;top:4%;">
 	</div>
 </div>
+<div style="position:absolute;width:100%;top:0px;left:0px;z-index:9999999999999;"><h3 id="wave">Wave 1</h3></div>
 <div id="writing" style="width:100%;height:100%;position:absolute;left:0px;top:0px;background-color:#696969;">
 		<img src="/img/writing.png" style="width:30%;position:absolute;top:20%;left:35%;">
 	</div>
@@ -52,43 +53,56 @@
 		
 		var cont=document.getElementById("cont");
 		var target=document.getElementById("target");
+		var wave=document.getElementById("wave");
+		var wavenum=1;
 		var gunshot=document.getElementById("gunshot");
 		var gun=document.getElementById("gun");
 		var contleft=0;
 		var conttop=0;
-		
-		setInterval(() => {
-			if (!paused){
-				var enemyx = Math.floor(Math.random() * window.innerWidth * 2);
-				var enemyy = (window.innerHeight/100)*30;
-				var enemywidth = 0;
-				var enemyheight = 0;
-				var enemy = document.createElement("img");
-				enemy.className="zombies";
-				enemy.src="/img/zombie.png";
-				enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background:transparent;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
-				cont.appendChild(enemy);
-				setInterval(() => {
-					if (!paused){
-						enemyy = enemyy + window.innerWidth / 500;
-						enemywidth = enemywidth + 12;
-						enemyheight = enemyheight + 18;
-						enemy.style.width = enemywidth + "px";
-						enemy.style.height = enemyheight + "px";
-						enemy.style.top = enemyy + "px";
-						enemy.style.left = enemyx + "px";
-						enemy.dataset.x=enemyx;
-						enemy.dataset.y=enemyy;
-						enemy.dataset.width=enemywidth;
-						enemy.dataset.height=enemyheight;
-						if (enemyheight > window.innerHeight) {
-							enemy.remove();
-						}
-					}
-				}, 50);
-			}
-		}, 100);
 
+		function runwave(speed,rate,length){
+			function e(){
+				if (!paused){
+					var enemyx = Math.floor(Math.random() * window.innerWidth * 2);
+					var enemyy = (window.innerHeight/100)*30;
+					var enemywidth = 0;
+					var enemyheight = 0;
+					var enemy = document.createElement("img");
+					enemy.className="zombies";
+					enemy.src="/img/zombie.png";
+					enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background:transparent;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
+					cont.appendChild(enemy);
+					setInterval(() => {
+						if (!paused){
+							enemyy = enemyy + window.innerWidth / 500;
+							enemywidth = enemywidth + speed/3;
+							enemyheight = enemyheight + speed/2;
+							enemy.style.width = enemywidth + "px";
+							enemy.style.height = enemyheight + "px";
+							enemy.style.top = enemyy + "px";
+							enemy.style.left = enemyx + "px";
+							enemy.dataset.x=enemyx;
+							enemy.dataset.y=enemyy;
+							enemy.dataset.width=enemywidth;
+							enemy.dataset.height=enemyheight;
+							if (enemyheight > window.innerHeight) {
+								enemy.remove();
+							}
+						}
+					}, 50);
+				}
+			}
+				
+			setInterval(e,rate);
+			setTimeout(() => {
+				clearInterval(e);
+				wavenum=wavenum+1;
+				wave.innerText="Wave "+wavenum;
+			},length*1000);
+		}
+
+		runwave(10,500,20);
+		
 		setInterval(() => {
 			if (!paused){
 				if (document.pointerLockElement === cont) {
