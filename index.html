@@ -123,10 +123,8 @@
 					var zwidth=zombies[i].dataset.width;
 					var zheight=zombies[i].dataset.height;
 					
-					if (tx < zx + zwidth && tx + twidth > zx && ty < zy + zheight && ty + theight > zy){
-						zombies[i].remove();
+					if ((tx+twidth<zx && tx>zx) && (ty+theight<zy && ty>zy)){
 						alert("e");
-						break;
 					}
 				}
 				
