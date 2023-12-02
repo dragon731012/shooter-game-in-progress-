@@ -7,7 +7,9 @@
 		<img src="/img/cloud.png" style="width:6%;position:absolute;right:10%;top:4%;">
 	</div>
 </div>
-<div style="position:absolute;width:100%;top:0px;left:0px;z-index:9999999999999;"><h3 id="wave">Wave 1</h3></div>
+<div style="position:absolute;width:100%;top:0px;left:0px;z-index:9999999999999;text-align:left;color:white;"><h3 id="wave">Wave 1</h3></div>
+<div style="position:absolute;width:100%;top:0px;left:0px;z-index:9999999999999;text-align:center;color:white;"><h3 id="time">0</h3></div>
+
 <div id="writing" style="width:100%;height:100%;position:absolute;left:0px;top:0px;background-color:#696969;">
 		<img src="/img/writing.png" style="width:30%;position:absolute;top:20%;left:35%;">
 	</div>
@@ -61,6 +63,7 @@
 		var conttop=0;
 
 		function runwave(speed,rate,length){
+			var time=0;
 			function e(){
 				if (!paused){
 					var enemyx = Math.floor(Math.random() * window.innerWidth * 2);
@@ -99,9 +102,26 @@
 				wavenum=wavenum+1;
 				wave.innerText="Wave "+wavenum;
 			},length*1000);
+			var setInterval(() => {
+				time=time+1;
+				document.getElementById("time").innerText=time;
+			},duration);
 		}
 
-		runwave(10,1000,20);
+		var rate=1000;
+		var duration=20;
+		var speed=10;
+		
+		function setTimeout(() => {
+			var setInterval(() => {
+				
+			},duration);
+			
+			runwave(speed,rate,duration);
+			speed=speed+1;
+			rate=rate-50;
+			duration=duration+
+		},duration+20);
 		
 		setInterval(() => {
 			if (!paused){
