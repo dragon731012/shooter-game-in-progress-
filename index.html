@@ -58,14 +58,15 @@
 				var enemyy = (window.innerHeight/100)*30;
 				var enemywidth = 0;
 				var enemyheight = 0;
-				var enemy = document.createElement("div");
+				var enemy = document.createElement("img");
+				enemy.src="/img/zombie.png";
 				enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background-color:black;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
 				cont.appendChild(enemy);
 				setInterval(() => {
 					if (!paused){
 						enemyy = enemyy + window.innerWidth / 500;
 						enemywidth = enemywidth + 12;
-						enemyheight = enemyheight + 24;
+						enemyheight = enemyheight + 18;
 						enemy.style.width = enemywidth + "px";
 						enemy.style.height = enemyheight + "px";
 						enemy.style.top = enemyy + "px";
