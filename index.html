@@ -14,7 +14,6 @@
 		                 cont.webkitRequestPointerLock;
 			cont.requestPointerLock();
 		document.getElementById("resume").style.display="none";
-		pause=false;
 		}
 	
 	
@@ -30,6 +29,7 @@
 
 		function lockChangeAlert() {
 		  if (document.pointerLockElement === cont) {
+			  		pause=false;
 		  } else {
 		    paused=true;
 		    document.getElementById("resume").style.display="block";
