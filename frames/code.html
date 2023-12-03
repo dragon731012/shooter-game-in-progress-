@@ -87,10 +87,11 @@
 					enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background:transparent;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
 					cont.appendChild(enemy);
 					var mloop=setInterval(() => {
-						if (!paused && enemy!=null){
+						if (!paused){
 							enemyy = enemyy + window.innerWidth / 500;
 							enemywidth = enemywidth + speed/3;
 							enemyheight = enemyheight + speed/2;
+							alert(enemy);
 							enemy.style.width = enemywidth + "px";
 							enemy.style.height = enemyheight + "px";
 							enemy.style.top = enemyy + "px";
