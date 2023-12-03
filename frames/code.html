@@ -91,7 +91,6 @@
 							enemyy = enemyy + window.innerWidth / 500;
 							enemywidth = enemywidth + speed/3;
 							enemyheight = enemyheight + speed/2;
-							alert(enemy);
 							enemy.style.width = enemywidth + "px";
 							enemy.style.height = enemyheight + "px";
 							enemy.style.top = enemyy + "px";
@@ -101,6 +100,7 @@
 							enemy.dataset.width=enemywidth;
 							enemy.dataset.height=enemyheight;
 							if (enemyheight > window.innerHeight) {
+								alert(enemy);
 								if (get_cookie("score")<score){
 									document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
 								}
