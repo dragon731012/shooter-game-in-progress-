@@ -85,7 +85,7 @@
 					enemy.dataset.height = 0;
 					enemy.className="zombies";
 					enemy.src="/img/zombie.png";
-					enemy.style = "width:" + enemy.dataset.width + "px;height:" + enemy.dataset.height + "px;background:transparent;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
+					enemy.style = "width:" + enemy.dataset.width + "px;height:" + enemy.dataset.height + "px;background:transparent;position:absolute;top:" + enemy.dataset.y + "px;left:" + enemy.dataset.x + "px;";
 					cont.appendChild(enemy);
 					var mloop=setInterval(() => {
 						if (!paused){
