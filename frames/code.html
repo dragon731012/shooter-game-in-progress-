@@ -22,6 +22,8 @@
 
 <img src="/img/target.png" id="target" style="display:none;width:7%;position:absolute;left:50%;top:50%;translate: -50% -50%;z-index:9999999999999;">
 <script>
+	function get_cookie(cookie_name) { const value = "; " + document.cookie; const parts = value.split("; " + cookie_name + "="); if (parts.length === 2) return parts.pop().split(";").shift(); } 
+
 	var paused=false;
 	
 	function lock(){
@@ -62,6 +64,7 @@
 		var gun=document.getElementById("gun");
 		var contleft=0;
 		var conttop=0;
+		var score=0;
 
 		function runwave(speed,rate,length){
 			var time=0;
@@ -90,9 +93,12 @@
 							enemy.dataset.width=enemywidth;
 							enemy.dataset.height=enemyheight;
 							if (enemyheight > window.innerHeight) {
-								document.cookie='wave='+wavenum+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+								if (get_cookie("score")<score){
+									document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+								}
+								document.cookie='lastscore='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
 								setTimeout(() => {
-									window.location.pathname="/death.html";
+									window.location.pathname="/frames/death.html";
 								},10);
 							}
 						}
@@ -182,6 +188,7 @@
 					
 					if (isOverlapping(target,zombies[i])){
 						zombies[i].remove();
+						score=score+100;
 						break;
 					}
 				}
