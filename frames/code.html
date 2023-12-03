@@ -89,13 +89,13 @@
 					cont.appendChild(enemy);
 					var mloop=setInterval(() => {
 						if (!paused){
-							enemy.dataset.y = enemy.dataset.y + window.innerWidth / 500;
-							enemy.dataset.width = enemy.dataset.width + speed/3;
-							enemy.dataset.height = enemy.dataset.height + speed/2;
-							enemy.style.width = enemy.dataset.width + "px";
-							enemy.style.height = enemy.dataset.height + "px";
-							enemy.style.top = enemy.dataset.y + "px";
-							enemy.style.left = enemy.dataset.x + "px";
+							enemy.dataset.y = Number(enemy.dataset.y) + window.innerWidth / 500;
+							enemy.dataset.width = Number(enemy.dataset.width) + speed/3;
+							enemy.dataset.height = Number(enemy.dataset.height) + speed/2;
+							enemy.style.width = Number(enemy.dataset.width) + "px";
+							enemy.style.height = Number(enemy.dataset.height) + "px";
+							enemy.style.top = Number(enemy.dataset.y) + "px";
+							enemy.style.left = Number(enemy.dataset.x) + "px";
 							if (enemy.dataset.height > window.innerHeight) {
 								if (get_cookie("score")<score){
 									document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
