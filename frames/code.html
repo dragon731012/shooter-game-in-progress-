@@ -86,8 +86,8 @@
 					enemy.src="/img/zombie.png";
 					enemy.style = "width:" + enemywidth + "px;height:" + enemyheight + "px;background:transparent;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
 					cont.appendChild(enemy);
-					setInterval(() => {
-						if (!paused){
+					var mloop=setInterval(() => {
+						if (!paused && enemy!=null){
 							enemyy = enemyy + window.innerWidth / 500;
 							enemywidth = enemywidth + speed/3;
 							enemyheight = enemyheight + speed/2;
