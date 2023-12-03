@@ -78,11 +78,11 @@
 			var time=0;
 			function e(){
 				if (!paused){
+					var enemy = document.createElement("img");
 					enemy.dataset.x = Math.floor(Math.random() * window.innerWidth * 2);
 					enemy.dataset.y = (window.innerHeight/100)*30;
 					enemy.dataset.width = 0;
 					enemy.dataset.height = 0;
-					var enemy = document.createElement("img");
 					enemy.className="zombies";
 					enemy.src="/img/zombie.png";
 					enemy.style = "width:" + enemy.dataset.width + "px;height:" + enemy.dataset.height + "px;background:transparent;position:absolute;top:" + enemyy + "px;left:" + enemyx + "px;";
