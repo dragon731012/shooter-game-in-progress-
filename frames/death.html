@@ -1,11 +1,6 @@
-<h1 id="score" style="font-family:blood;text-align:center;color:white;width:100%;position:absolute;left:0px;top:0px;color:#C31618;">Score: </h1>
-<h3 id="highscore" style="font-family:blood;text-align:center;color:white;width:100%;position:absolute;left:0px;top:0px;color:#C31618;">High Score: </h3>
-<style>
-  @font-face {
-      font-family: blood;
-      src: url('/fonts/bloodstain.ttf');
-  }
-  
+<h1 id="score" style="text-align:center;color:white;width:100%;position:absolute;left:0px;top:0px;color:#C31618;">Score: </h1>
+<h3 id="highscore" style="text-align:center;color:white;width:100%;position:absolute;left:0px;top:0px;color:#C31618;">High Score: </h3>
+<style> 
   body{
     background-color:#696969;
   }
@@ -14,6 +9,6 @@
   function get_cookie(cookie_name) { const value = "; " + document.cookie; const parts = value.split("; " + cookie_name + "="); if (parts.length === 2) return parts.pop().split(";").shift(); } 
   document.getElementById("score").innerText="Score: "+get_cookie("lastscore");
   document.getElementById("highscore").style.top=document.getElementById("score").offsetHeight;
-  document.getElementById("score").innerText="High Score: "+get_cookie("score");
+  document.getElementById("highscore").innerText="High Score: "+get_cookie("score");
 </script>
 <a href="/frames/code.html"><div style="width:15%; position:absolute;text-align:center;display:none;left:50%;bottom:5%;translate: -50%;background-color:#696969;z-index:3;cursor:pointer;"><h2>Restart</h2></div></a>
