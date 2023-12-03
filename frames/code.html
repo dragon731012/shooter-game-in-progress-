@@ -66,6 +66,13 @@
 		var conttop=0;
 		var score=0;
 
+		if (get_cookie("score")==null || get_cookie("score")==undefined){
+			document.cookie='score=0; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+		}
+		if (get_cookie("lastscore")==null || get_cookie("lastscore")==undefined){
+			document.cookie='lastscore=0; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+		}
+
 		function runwave(speed,rate,length){
 			var time=0;
 			function e(){
