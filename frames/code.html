@@ -89,7 +89,7 @@
 					cont.appendChild(enemy);
 					var mloop=setInterval(() => {
 						if (!paused){
-							enemyy = enemyy + window.innerWidth / 500;
+							enemy.dataset.y = enemy.dataset.y + window.innerWidth / 500;
 							enemy.dataset.width = enemy.dataset.width + speed/3;
 							enemy.dataset.height = enemy.dataset.height + speed/2;
 							enemy.style.width = enemy.dataset.width + "px";
