@@ -96,14 +96,13 @@
 							enemy.style.height = Number(enemy.dataset.height) + "px";
 							enemy.style.top = Number(enemy.dataset.y) + "px";
 							enemy.style.left = Number(enemy.dataset.x) + "px";
-							if (Number(enemy.dataset.height) > window.innerHeight*2) {
+							if (Number(enemy.dataset.height) > window.innerHeight*1.2) {
 								if (get_cookie("score")<score){
 									document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
 								}
 								document.cookie='lastscore='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
 								setTimeout(() => {
-									paused=true;
-									//window.location.pathname="/frames/death.html";
+									window.location.pathname="/frames/death.html";
 								},10);
 							}
 						}
