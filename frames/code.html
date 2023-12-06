@@ -89,6 +89,9 @@
 					cont.appendChild(enemy);
 					var mloop=setInterval(() => {
 						if (!paused){
+							if (enemy==null){
+								clearInterval(mloop);
+							}
 							enemy.dataset.y = Number(enemy.dataset.y) + window.innerWidth / 500;
 							enemy.dataset.width = Number(enemy.dataset.width) + speed/3;
 							enemy.dataset.height = Number(enemy.dataset.height) + speed/2;
