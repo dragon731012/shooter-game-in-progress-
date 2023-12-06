@@ -99,20 +99,27 @@
 							enemy.style.height = Number(enemy.dataset.height) + "px";
 							enemy.style.top = Number(enemy.dataset.y) + "px";
 							enemy.style.left = Number(enemy.dataset.x) + "px";
-							if (Number(enemy.dataset.height) > window.innerHeight*1.2) {
-								if (get_cookie("score")<score){
-									document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
-								}
-								document.cookie='lastscore='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
-								setTimeout(() => {
-									window.location.pathname="/frames/death.html";
-								},10);
-							}
 						}
 					}, 50);
 				}
 			}
+
+			setInterval(() => {
+				var zombies=document.getElementsByClassName("zombies");
 				
+				for (var i=0;i<zombies.length;i++){
+					if (Number(enemy.dataset.height) > window.innerHeight*1.2) {
+						if (get_cookie("score")<score){
+							document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+						}
+						document.cookie='lastscore='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+						setTimeout(() => {
+							window.location.pathname="/frames/death.html";
+						},10);
+					}
+				}
+			},5);
+			
 			var inter=setInterval(e,rate);
 			setTimeout(() => {
 				clearInterval(inter);
