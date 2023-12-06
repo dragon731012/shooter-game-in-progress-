@@ -108,7 +108,7 @@
 				var zombies=document.getElementsByClassName("zombies");
 				
 				for (var i=0;i<zombies.length;i++){
-					if (Number(enemy.dataset.height) > window.innerHeight*1.2) {
+					if (Number(zombies[i].dataset.height) > window.innerHeight*1.2) {
 						if (get_cookie("score")<score){
 							document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
 						}
