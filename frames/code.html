@@ -22,6 +22,28 @@
 
 <img src="/img/target.png" id="target" style="display:none;width:7%;position:absolute;left:50%;top:50%;translate: -50% -50%;z-index:9999999999999;">
 <script>
+	var Timer = function(callback, delay) {
+    var timerId, start, remaining = delay;
+
+    this.pause = function() {
+        window.clearTimeout(timerId);
+        timerId = null;
+        remaining -= Date.now() - start;
+    };
+
+    this.resume = function() {
+        if (timerId) {
+            return;
+        }
+
+        start = Date.now();
+        timerId = window.setTimeout(callback, remaining);
+    };
+
+    this.resume();
+};
+
+	
 	function get_cookie(cookie_name) { const value = "; " + document.cookie; const parts = value.split("; " + cookie_name + "="); if (parts.length === 2) return parts.pop().split(";").shift(); } 
 
 	var paused=false;
@@ -105,17 +127,19 @@
 			}
 
 			setInterval(() => {
-				var zombies=document.getElementsByClassName("zombies");
-				
-				for (var i=0;i<zombies.length;i++){
-					if (Number(zombies[i].dataset.height) > window.innerHeight*1.2) {
-						if (get_cookie("score")<score){
-							document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+				if (!paused){
+					var zombies=document.getElementsByClassName("zombies");
+					
+					for (var i=0;i<zombies.length;i++){
+						if (Number(zombies[i].dataset.height) > window.innerHeight*1.2) {
+							if (get_cookie("score")<score){
+								document.cookie='score='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+							}
+							document.cookie='lastscore='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
+							setTimeout(() => {
+								window.location.pathname="/frames/death.html";
+							},10);
 						}
-						document.cookie='lastscore='+score+'; expires=Thu, 18 Dec 9013 12:00:00 UTC; path=/';
-						setTimeout(() => {
-							window.location.pathname="/frames/death.html";
-						},10);
 					}
 				}
 			},5);
@@ -151,10 +175,12 @@
 		
 		
 		setInterval(() => {
-			runwave(speed,rate,duration);
-			speed=speed+2.5;
-			rate=rate-50;
-			duration=duration+2;
+			if (!paused){
+				runwave(speed,rate,duration);
+				speed=speed+2.5;
+				rate=rate-50;
+				duration=duration+2;
+			}
 		},(duration+5)*1000);
 		
 		setInterval(() => {
